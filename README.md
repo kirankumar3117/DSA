@@ -4,3 +4,5 @@
 ~ n'th fibonacci number (using brute force) - FibBrut.
 
 ~ How many times a number repeated - How many times a number repeated.
+
+~ Reversing a given number (with out converting it into string) - ReverseNumber.
