@@ -6,3 +6,5 @@
 ~ How many times a number repeated - How many times a number repeated.
 
 ~ Reversing a given number (with out converting it into string) - ReverseNumber.
+
+~ Checking the prime number (Brute force, but some how new approach) - IsPrime.
