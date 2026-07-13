@@ -4,15 +4,27 @@
  * @return {number}
  */
 var numJewelsInStones = function(jewels, stones) {
-    let hash = {};
+    // let hash = {};
+    // for(let i=0;i<jewels.length;i++){
+    //     if(!hash[jewels[i]]){
+    //         hash[jewels[i]] = true;
+    //     }
+    // }
+    // let count = 0;
+    // for(let i=0;i<stones.length;i++){
+    //     if(hash[stones[i]]){
+    //         count++;
+    //     }
+    // }
+    // return count;
+
+    let set = new Set();
     for(let i=0;i<jewels.length;i++){
-        if(!hash[jewels[i]]){
-            hash[jewels[i]] = true;
-        }
-    }
+        set.add(jewels[i])
+    };
     let count = 0;
     for(let i=0;i<stones.length;i++){
-        if(hash[stones[i]]){
+        if(set.has(stones[i])){
             count++;
         }
     }
