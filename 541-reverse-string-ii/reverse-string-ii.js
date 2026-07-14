@@ -8,6 +8,7 @@ var reverseStr = function(s, k) {
     for(let i=0;i<s.length;i+=2*k){
         let l = i
         let r = i+k-1;
+        if(r>= s.length) r=s.length-1;
         while(l<r){
             [s[l], s[r]] = [s[r], s[l]]
             l++;
