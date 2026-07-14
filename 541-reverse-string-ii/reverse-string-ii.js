@@ -6,11 +6,18 @@
 var reverseStr = function(s, k) {
     s=s.split("")
     for(let i=0;i<s.length;i+=2*k){
+
         let l = i
-        let r = i+k-1;
-        if(r>= s.length) r=s.length-1;
+        let r = i+(k-1);
+
+        if(r >= s.length){
+            r = s.length-1
+        }
+
         while(l<r){
-            [s[l], s[r]] = [s[r], s[l]]
+            let temp = s[l];
+            s[l] = s[r];
+            s[r] = temp;
             l++;
             r--;
         }
