@@ -5,12 +5,10 @@
 var largestOddNumber = function(num) {
     let i=num.length-1;
     while(i>=0){
-        if(+num[i]%2 === 0){
-            num=num.slice(0, i);
-        }else{
-            return num;
+        if((num[i] - '0') % 2){
+            return num.substring(0, i+1)
         }
         i--;
     }
-    return num;
+    return "";
 };
