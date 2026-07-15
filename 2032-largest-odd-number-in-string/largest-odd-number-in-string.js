@@ -3,12 +3,10 @@
  * @return {string}
  */
 var largestOddNumber = function(num) {
-    let i=num.length-1;
-    while(i>=0){
+    for(let i=num.length - 1; i >= 0; i--){
         if((num[i] - '0') % 2){
             return num.substring(0, i+1)
         }
-        i--;
     }
     return "";
 };
