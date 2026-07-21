@@ -6,18 +6,16 @@
 var isIsomorphic = function(s, t) {
     if(s.length != t.length) return false;
     let hash = {};
+    let nHash = {}
     for(let i=0;i<s.length;i++){
         if(hash[s[i]] && hash[s[i]] != t[i]){
            return false;
         }
          hash[s[i]] = t[i];
-    };
-    let nHash = {}
-    for(let ch in hash){
-        if(nHash[hash[ch]]){
+        if(nHash[t[i]] && nHash[t[i]] != s[i]){
             return false;
         }
-        nHash[hash[ch]] = ch;
+        nHash[t[i]] = s[i]
     };
     return true;
 };
