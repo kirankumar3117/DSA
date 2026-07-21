@@ -16,14 +16,12 @@ var isIsomorphic = function(s, t) {
     // };
     // return true;
 
-      const mapS = {};
+    if(s.length != t.length) return false;
+    const mapS = {};
     const mapT = {};
 
     for (let i = 0; i < s.length; i++) {
-        if (mapS[s[i]] !== mapT[t[i]]) {
-            return false;
-        }
-
+        if (mapS[s[i]] !== mapT[t[i]]) return false;
         mapS[s[i]] = i + 1;
         mapT[t[i]] = i + 1;
     }
