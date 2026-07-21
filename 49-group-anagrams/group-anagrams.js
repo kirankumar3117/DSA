@@ -7,7 +7,7 @@ var groupAnagrams = function(strs) {
     for(let i=0;i<strs.length;i++){
         let str = strs[i].split("").sort().join("");
         if(map[str] != undefined){
-            map[str] = [...map[str], strs[i]]
+           map[str].push(strs[i])
         }else{
             map[str] = [strs[i]]
         }
