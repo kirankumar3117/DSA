@@ -15,8 +15,7 @@ MyStack.prototype.push = function(x) {
  * @return {number}
  */
 MyStack.prototype.pop = function() {
-    const size = this.q1.length;
-    for(let i=0;i<size-1;i++){
+    for(let i=0;i<this.q1.length-1;i++){
         this.q1.push(this.q1.shift())
     }
     return this.q1.shift();
