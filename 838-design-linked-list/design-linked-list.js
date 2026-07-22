@@ -43,7 +43,7 @@ MyLinkedList.prototype.addAtTail = function(val) {
         this.head = newNode;
     }else{
         let curr = this.head;
-        while(curr.next != null){
+        while(curr.next){
             curr = curr.next
         }
         curr.next = newNode;
