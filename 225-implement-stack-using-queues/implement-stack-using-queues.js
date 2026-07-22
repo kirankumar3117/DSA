@@ -17,12 +17,11 @@ MyStack.prototype.push = function(x) {
  */
 MyStack.prototype.pop = function() {
     while(this.q1.length > 1){
-         this.q2.push(this.q1.shift())
+        this.q2.push(this.q1.shift());
     };
-    let poped = this.q1.shift()
-    this.q1 = this.q2;
-    this.q2 = []
-    return poped;
+    const popped = this.q1.shift();
+    [this.q1, this.q2] = [this.q2, this.q1];
+    return popped;
 };
 
 /**
@@ -33,9 +32,8 @@ MyStack.prototype.top = function() {
         this.q2.push(this.q1.shift())
     };
     let top = this.q1.shift();
-    this.q2.push(top)
-    this.q1 = this.q2;
-    this.q2 = []
+    this.q2.push(top);
+    [this.q1, this.q2] = [this.q2, this.q1];
     return top;
 };
 
@@ -45,8 +43,6 @@ MyStack.prototype.top = function() {
 MyStack.prototype.empty = function() {
     return this.q1.length === 0;
 };
-
-
 
 /** 
  * Your MyStack object will be instantiated and called as such:
