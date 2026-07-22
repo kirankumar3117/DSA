@@ -16,9 +16,12 @@ MyStack.prototype.push = function(x) {
  * @return {number}
  */
 MyStack.prototype.pop = function() {
-    this.moveUntilLast();
+    while(this.q1.length > 1){
+         this.q2.push(this.q1.shift())
+    };
     let poped = this.q1.shift()
-    this.swapQueues();
+    this.q1 = this.q2;
+    this.q2 = []
     return poped;
 };
 
@@ -26,10 +29,13 @@ MyStack.prototype.pop = function() {
  * @return {number}
  */
 MyStack.prototype.top = function() {
-    this.moveUntilLast();
+    while(this.q1.length > 1){
+        this.q2.push(this.q1.shift())
+    };
     let top = this.q1.shift();
     this.q2.push(top)
-    this.swapQueues();
+    this.q1 = this.q2;
+    this.q2 = []
     return top;
 };
 
@@ -37,19 +43,10 @@ MyStack.prototype.top = function() {
  * @return {boolean}
  */
 MyStack.prototype.empty = function() {
-    return this.q1.length ? false : true;
+    return this.q1.length === 0;
 };
 
-MyStack.prototype.swapQueues = function() {
-    this.q1 = this.q2;
-    this.q2 = []
-}
 
-MyStack.prototype.moveUntilLast = function() {
-    while(this.q1.length > 1){
-        this.q2.push(this.q1.shift())
-    };
-}
 
 /** 
  * Your MyStack object will be instantiated and called as such:
