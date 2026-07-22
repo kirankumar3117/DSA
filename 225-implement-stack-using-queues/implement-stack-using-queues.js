@@ -26,7 +26,8 @@ MyStack.prototype.pop = function() {
  * @return {number}
  */
 MyStack.prototype.top = function() {
-    for(let i=0;i<this.q1.length-1;i++){
+    const size = this.q1.length;
+    for(let i=0;i<size-1;i++){
         this.q1.push(this.q1.shift())
     };
     let top = this.q1.shift();
