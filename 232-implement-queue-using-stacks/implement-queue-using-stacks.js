@@ -11,8 +11,7 @@ var MyQueue = function() {
 MyQueue.prototype.push = function(x) {
    this.s1.push(x);
    if(this.s2.length === 0){
-    let n = this.s1.length;
-    for(let i=0;i<n;i++){
+    while(this.s1.length){
         this.s2.push(this.s1.pop());
     }
    }
@@ -22,22 +21,20 @@ MyQueue.prototype.push = function(x) {
  * @return {number}
  */
 MyQueue.prototype.pop = function() {
-     if(this.s2.length === 0){
-    let n = this.s1.length;
-    for(let i=0;i<n;i++){
+    if(this.s2.length === 0){
+    while(this.s1.length){
         this.s2.push(this.s1.pop());
     }
    }
-    return this.s2.pop();
+   return this.s2.pop();
 };
 
 /**
  * @return {number}
  */
 MyQueue.prototype.peek = function() {
-     if(this.s2.length === 0){
-    let n = this.s1.length;
-    for(let i=0;i<n;i++){
+      if(this.s2.length === 0){
+    while(this.s1.length){
         this.s2.push(this.s1.pop());
     }
    }
