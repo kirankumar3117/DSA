@@ -9,15 +9,18 @@ var MyStack = function() {
  */
 MyStack.prototype.push = function(x) {
     this.q1.push(x)
+
+    let size = this.q1.length;
+    while(size > 1){
+        this.q1.push(this.q1.shift());
+        size--;
+    }
 };
 
 /**
  * @return {number}
  */
 MyStack.prototype.pop = function() {
-    for(let i=0;i<this.q1.length-1;i++){
-        this.q1.push(this.q1.shift())
-    }
     return this.q1.shift();
 };
 
@@ -25,12 +28,7 @@ MyStack.prototype.pop = function() {
  * @return {number}
  */
 MyStack.prototype.top = function() {
-    for(let i=0;i<this.q1.length-1;i++){
-        this.q1.push(this.q1.shift())
-    };
-    let top = this.q1.shift();
-    this.q1.push(top)
-    return top;
+    return this.q1[0]
 };
 
 /**
