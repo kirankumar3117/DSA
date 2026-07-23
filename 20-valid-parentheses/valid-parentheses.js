@@ -10,11 +10,10 @@ var isValid = function(s) {
         ']' : '['
     }
     for(let i=0;i<s.length;i++){
-        if(stack[stack.length-1] == hash[s[i]] && stack.length > 0){
+        if(stack.length > 0 && stack[stack.length-1] == hash[s[i]]){
             stack.pop()
         }else{
             stack.push(s[i])
-            console.log(stack)
         }
     }
     return stack.length === 0;
