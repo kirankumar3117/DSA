@@ -8,12 +8,8 @@ var MinStack = function() {
  * @return {void}
  */
 MinStack.prototype.push = function(value) {
-    let min = value;
-    if(this.min.length && this.min[this.min.length-1][1] < min){
-        this.min.push([value, this.min[this.min.length-1][1]])
-    }else{
-        this.min.push([value, min])
-    }
+    const currMin = this.min.length ? Math.min(this.min[this.min.length-1][1], value) : value
+    this.min.push([value, currMin])
 };
 
 /**
