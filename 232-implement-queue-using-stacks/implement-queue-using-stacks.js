@@ -9,21 +9,16 @@ var MyQueue = function() {
  * @return {void}
  */
 MyQueue.prototype.push = function(x) {
-   this.s1.push(x);
-   if(this.s2.length === 0){
-    while(this.s1.length){
-        this.s2.push(this.s1.pop());
-    }
-   }
+   this.s1.push(x)
 };
 
 /**
  * @return {number}
  */
 MyQueue.prototype.pop = function() {
-    if(this.s2.length === 0){
+   if(this.s2.length === 0){
     while(this.s1.length){
-        this.s2.push(this.s1.pop());
+        this.s2.push(this.s1.pop())
     }
    }
    return this.s2.pop();
@@ -33,14 +28,12 @@ MyQueue.prototype.pop = function() {
  * @return {number}
  */
 MyQueue.prototype.peek = function() {
-      if(this.s2.length === 0){
-    while(this.s1.length){
-        this.s2.push(this.s1.pop());
+    if(this.s2.length === 0){
+      while(this.s1.length){
+        this.s2.push(this.s1.pop())
+      }
     }
-   }
-    const top = this.s2.pop();
-    this.s2.push(top);
-    return top;
+    return this.s2[this.s2.length-1];
 };
 
 /**
