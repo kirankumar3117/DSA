@@ -9,13 +9,13 @@ var removeOuterParentheses = function(s) {
         if(s[i] === "("){
             stack.push(s[i]);
             if(stack.length > 1){
-                str = str + stack[stack.length -1];
-            }
-        }else{
-            stack.pop();
-            if(stack.length > 0){
                 str = str + s[i]
             }
+        }else{
+            if(stack.length > 1){
+                str = str + s[i]
+            }
+            stack.pop();
         }
     }
     return str;
