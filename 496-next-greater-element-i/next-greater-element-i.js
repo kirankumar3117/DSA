@@ -10,13 +10,8 @@ var nextGreaterElement = function(nums1, nums2) {
        while(stack.length && stack[stack.length-1] < nums2[i]){
         stack.pop();
        }
-       if(!stack.length){
-        stack.push(nums2[i]);
-        map[nums2[i]] = -1
-       }else{
-        map[nums2[i]] = stack[stack.length-1];
-        stack.push(nums2[i])
-       }
+      map[nums2[i]] = stack.length ? stack[stack.length - 1] : -1;
+      stack.push(nums2[i]);
     };
     for(let i=0;i<nums1.length;i++){
         nums1[i] = map[nums1[i]];
