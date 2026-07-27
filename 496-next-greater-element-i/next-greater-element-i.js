@@ -4,25 +4,23 @@
  * @return {number[]}
  */
 var nextGreaterElement = function(nums1, nums2) {
-    let result = [];
-    for(let i=0;i<nums1.length;i++){
-        let flag = false;
-        let greater = nums1[i]
-        for(let j=0;j<nums2.length;j++){
-            if(flag){
-                if(nums1[i] < nums2[j]){
-                    result.push(nums2[j]);
-                    greater = nums2[j]
-                    break;
-                };
-            }
-                if(nums1[i] === nums2[j]){
-                    flag=true;
-                }
-        }
-        if(greater === nums1[i]){
-            result.push(-1)
-        }
-    }
-    return result;
-}
+    let map = {};
+    let stack = [];
+    for(let i=nums2.length-1;i>=0;i--){
+       while(stack.length && stack[stack.length-1] < nums2[i]){
+        stack.pop();
+       }
+       if(!stack.length){
+        stack.push(nums2[i]);
+        map[nums2[i]] = -1
+       }else{
+        map[nums2[i]] = stack[stack.length-1];
+        stack.push(nums2[i])
+       }
+    };
+    let result = []
+    for(let num of nums1){
+        result.push(map[num]);
+    };
+    return result
+};
