@@ -18,9 +18,8 @@ var nextGreaterElement = function(nums1, nums2) {
         stack.push(nums2[i])
        }
     };
-    let result = []
-    for(let num of nums1){
-        result.push(map[num]);
+    for(let i=0;i<nums1.length;i++){
+        nums1[i] = map[nums1[i]];
     };
-    return result
+    return nums1;
 };
