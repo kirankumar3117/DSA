@@ -4,7 +4,7 @@
  */
 var nextGreaterElements = function(nums) {
     const n = nums.length;
-   nums = [...nums, ...nums.slice(0, n)];
+   nums = [...nums, ...nums];
     const hash = {}
     const stack = [];
     for(let i=nums.length-1;i>=0;i--){
