@@ -10,11 +10,7 @@ var nextGreaterElements = function(nums) {
             j++;
             if(j==nums.length) j = 0;
         };
-        if(j==i){
-            ans[i] = -1
-        }else{
-            ans[i] = nums[j]
-        }
+       ans[i] = (j===i) ? -1 : nums[j]
     };
     return ans;
 };
