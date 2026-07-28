@@ -3,14 +3,15 @@
  * @return {number[]}
  */
 var nextGreaterElements = function(nums) {
-    let ans = new Array(nums.length).fill(-1);
-    for(let i=0;i<nums.length;i++){
-        let j =( i+1 === nums.length) ? 0 : i+1;
-        while(j!=i && nums[j] <= nums[i]){
-            j++;
-            if(j==nums.length) j = 0;
+    const arr = [...nums, ...nums.slice(0, nums.length)];
+    const hash = {}
+    const stack = [];
+    for(let i=arr.length-1;i>=0;i--){
+        while(stack.length && stack[stack.length-1] <= arr[i]){
+            stack.pop();
         };
-       ans[i] = (j===i) ? -1 : nums[j]
+        hash[i] = stack.length ? stack[stack.length-1] : -1;
+        stack.push(arr[i])
     };
-    return ans;
+    return Object.values(hash).splice(0, nums.length);
 };
