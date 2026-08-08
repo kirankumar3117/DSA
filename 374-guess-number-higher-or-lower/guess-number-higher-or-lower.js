@@ -24,5 +24,5 @@ var guessNumber = function(n) {
             l = m + 1;
         }
     };
-    return r;
+    return -1;
 };
