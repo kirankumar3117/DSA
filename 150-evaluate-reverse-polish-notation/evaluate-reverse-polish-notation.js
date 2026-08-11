@@ -3,20 +3,20 @@
  * @return {number}
  */
 var evalRPN = function(tokens) {
-    let stack = [];
-    let operator = {
+    const stack = [];
+    const operators = {
         "+": (a,b) => a+b,
         "-": (a,b) => a-b,
         "*": (a,b) => a*b,
         "/": (a,b) => Math.trunc(a/b)
     };
-    for(let i=0;i<tokens.length;i++){
-        if(tokens[i] in operator){
-            let b = stack.pop();
-            let a = stack.pop();
-            stack.push(operator[tokens[i]](a,b))
+    for(const token of tokens){
+        if(token in operators){
+            const b = stack.pop();
+            const a = stack.pop();
+            stack.push(operators[token](a,b))
         }else{
-            stack.push(Number(tokens[i]))
+            stack.push(Number(token))
         }
     };
     return stack.pop()
