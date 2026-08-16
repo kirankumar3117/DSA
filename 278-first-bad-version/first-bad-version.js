@@ -22,10 +22,11 @@ var solution = function(isBadVersion) {
         let r = n;
         while(l<=r){
             const m = l + Math.floor((r-l)/2);
-            if(isBadVersion(m)){
-                r = m - 1;
+            const bad = isBadVersion(m);
+            if(!bad){
+                l = m + 1
             }else{
-                l = m + 1;
+                r = m - 1
             }
         };
         return l;
