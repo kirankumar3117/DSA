@@ -11,7 +11,10 @@ var search = function(nums, target) {
         if(nums[m] === target){
             return m;
         }
-        if(nums[l] < nums[m]){
+        //even though without equal it will work it is importent 
+        //cause think of seach eleiment is the first one or only one 
+        // single element 
+        if(nums[l] <= nums[m]){
             if(target >= nums[l] && target <= nums[m]){
                 r = m - 1
             }else{
